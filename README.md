@@ -2,7 +2,7 @@
 
 내방의 온도를 측정하여 database 에 넣기 위한 프로젝트
 
-1. __raspberry 4B__ 에서 DHT22 센서를 이용해 온습도 데이터를 수집합니다.
+1. __raspberry 4B__ 에서 DHT22 센서를 이용해 온습도 데이터를 수집합니다.  ([cj-rasp](https://github.com/noname2048/cj-rasp))
 2. 수집된 데이터를 requests 를 통해 aws-lambda 로 전달합니다.
 3. aws-lambda 는 supabase postgresql 데이터 베이스에 넣습니다.
 
