@@ -1,0 +1,27 @@
+version: "3.8"
+
+volumes:
+  postgresql-data: {}
+
+services:
+  local-db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+  local-was:
+    depends_on:
+      - local-db
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "8080:8000"
+    env_file:
+      - .env.local
