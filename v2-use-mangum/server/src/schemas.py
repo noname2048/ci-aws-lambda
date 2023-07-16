@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import UUID4, BaseModel, fields
+from pydantic import UUID4, BaseModel, Field
 
 
 class SensorDataDisplay(BaseModel):
@@ -12,7 +12,7 @@ class SensorDataDisplay(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class SensorDisplay(BaseModel):
@@ -20,17 +20,15 @@ class SensorDisplay(BaseModel):
     name: Optional[str]
     created_at: datetime
     updated_at: datetime
-    data: list[SensorDataDisplay]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class SensorCreateForm(BaseModel):
-    name: str = fields("", max_length=30)
+    name: str = Field("", max_length=30)
 
 
 class SensorDataCreateForm(BaseModel):
-    sensor_uuid: UUID4
-    temperature: float
-    humidity: float
+    temperature: float = Field(..., exampe=25.0)
+    humidity: float = Field(..., example=60.0)
