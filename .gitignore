@@ -1,2 +1,16 @@
+# ide
+.vscode
+.idea
+
+# env
 .env
+.env.local
+.env.dev
+.env.prod
+
+# python
+.pyenv-version
+poetry.lock
 .venv
+__pycache__
+*.py[cod]
