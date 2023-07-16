@@ -9,7 +9,7 @@
 .env.prod
 
 # python
-.pyenv-version
+.python-version
 poetry.lock
 .venv
 __pycache__
